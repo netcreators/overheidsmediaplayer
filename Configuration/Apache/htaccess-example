@@ -1,0 +1,33 @@
+
+# MIME types for overheidsmediaplayer:
+AddType text/vtt .vtt
+AddType text/plain .srt
+AddType video/mp4 .mp4
+AddType video/mp4 .m4v
+AddType video/webm .webm
+AddType video/quicktime .mov
+AddType video/x-ms-wmv .wmv
+AddType video/x-flv .flv
+AddType application/ogg .ogg
+AddType video/ogg .ogv
+AddType audio/ogg .oga
+AddType audio/mpeg .mp3
+AddType audio/mp4 .m4a
+AddType audio/x-ms-wma .wma
+
+# Disable gzip for streaming media:
+SetEnvIfNoCase Request_URI \.htc$ no-gzip
+SetEnvIfNoCase Request_URI \.swf$ no-gzip
+SetEnvIfNoCase Request_URI \.flv$ no-gzip
+SetEnvIfNoCase Request_URI \.mp3$ no-gzip
+SetEnvIfNoCase Request_URI \.mp4$ no-gzip
+SetEnvIfNoCase Request_URI \.ogg$ no-gzip
+SetEnvIfNoCase Request_URI \.ogv$ no-gzip
+SetEnvIfNoCase Request_URI \.oga$ no-gzip
+SetEnvIfNoCase Request_URI \.mov$ no-gzip
+SetEnvIfNoCase Request_URI \.wmv$ no-gzip
+SetEnvIfNoCase Request_URI \.m4a$ no-gzip
+SetEnvIfNoCase Request_URI \.aac$ no-gzip
+SetEnvIfNoCase Request_URI \.wma$ no-gzip
+SetEnvIfNoCase Request_URI \.webm$ no-gzip
+SetEnvIfNoCase Request_URI \.smil$ no-gzip

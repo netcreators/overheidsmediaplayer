@@ -1,0 +1,42 @@
+plugin.tx_overheidsmediaplayer_controller {
+	_CSS_DEFAULT_STYLE (
+
+.overheidsmediaplayer ul {border: 0;overflow:hidden;margin:0;padding:0 0 1px 0; list-style:none; }
+.overheidsmediaplayer li {background-image:none;padding:0;margin:0;border:0;}
+
+.overheidsmediaplayer li a {display: block; padding: 2px 15px 3px 0; font-weight: bold; border-bottom:1px solid #dedede; background:url('/typo3conf/ext/overheidsmediaplayer/Resources/Public/Images/pijl.gif') right top no-repeat;height:1%; text-decoration: none; color: #000;}
+.overheidsmediaplayer li li a { font-weight: normal; padding: 2px 15px 3px 0;}
+.overheidsmediaplayer li a:hover {color: #000; border-bottom: 1px solid #000; background:url('/typo3conf/ext/overheidsmediaplayer/Resources/Public/Images/pijl-hover.gif') right top no-repeat;}
+
+.overheidsmediaplayer li a.opened { background:url('/typo3conf/ext/overheidsmediaplayer/Resources/Public/Images/pijl-open.gif') right top no-repeat; }
+.overheidsmediaplayer li a.opened:hover { background:url('/typo3conf/ext/overheidsmediaplayer/Resources/Public/Images/pijl-open-hover.gif') right top no-repeat; }
+
+.overheidsmediaplayer li p a {display: inline; text-decoration: underline; color: blue; background: #FFF; border: 0; padding: 0; margin: 0; font-weight: normal;}
+.overheidsmediaplayer li p a:hover {display: inline; text-decoration: underline; color: blue; background: #FFF; border: 0; padding: 0; margin: 0;}
+
+.overheidsmediaplayer li a span.metageg {color: #000; display: block;}
+.overheidsmediaplayer li a:hover span.metageg {color: #000;}
+
+.overheidsmediaplayer li a span.metageg img { width: 16px; height: 15px; }
+
+.overheidsmediaplayer li img { margin-bottom: -4px;}
+
+.overheidsmediaplayer li.transcription div { margin:0; padding:0; border-bottom: 1px solid #EEE;}
+
+.overheidsmediaplayer li.transcription span.actor { font-weight: bold;}
+.overheidsmediaplayer li.transcription span.handeling, .overheidsmediaplayer li.transcription span.audiobeschrijving,
+.overheidsmediaplayer li.transcription span.gebaar, .overheidsmediaplayer li.transcription span.sfeer,
+.overheidsmediaplayer li.transcription span.geschreventekst { font-style: italic;}
+
+.overheidsmediaplayer-additional-audio-toggle-container { display: none; }
+.overheidsmediaplayer-additional-audio-toggle-container label { display: block; }
+.overheidsmediaplayer input[type='checkbox'].overheidsmediaplayer-additional-audio-toggle { margin: 7px 7px 7px 0; }
+.overheidsmediaplayer .additional-audio-container { display: none; }
+
+.overheidsmediaplayer .foldouts,
+.overheidsmediaplayer .foldout { margin: 0.5em 0; width: 100%; }
+
+.overheidsmediaplayer .foldout-header .foldout-header-status { position: absolute; left: -9999px; }
+
+	)
+}

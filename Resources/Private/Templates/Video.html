@@ -1,0 +1,184 @@
+<f:layout name="Default"/>
+
+<f:section name="main">
+
+	<div class="overheidsmediaplayer moviecontent" id="overheidsmediaplayer{contentElementUid}">
+
+
+		<f:if condition="{title}">
+			<h2>{title}</h2>
+		</f:if>
+
+
+		<f:if condition="{description}">
+			<p>
+				{description}
+			</p>
+		</f:if>
+
+
+		<div class="mediaelements">
+
+			<video poster="{posterImageUrl}" controls="controls" preload="none">
+
+				<f:for each="{videoFiles}" as="videoFileInfo">
+					<f:if condition="{videoFileInfo.mediaSourceUrl}">
+						<source type="{videoFileInfo.fileReference.mimeType}" src="{videoFileInfo.mediaSourceUrl}"/>
+					</f:if>
+				</f:for>
+
+				<f:for each="{captionFiles}" as="captionFileInfo">
+					<f:if condition="{captionFileInfo.mediaSourceUrl}">
+						<track kind="{captionFileInfo.kind}" src="{captionFileInfo.mediaSourceUrl}"
+							   srclang="{captionFileInfo.language}"
+							   label="{f:translate(id: 'LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:caption', extensionName: 'Overheidsmediaplayer')} ({captionFileInfo.fileReference.extension})"></track>
+					</f:if>
+				</f:for>
+
+				<f:if condition="{flashFallbackVideoFileInfo}">
+					<!-- Flash fallback for non-HTML5 browsers without JavaScript -->
+					<object width="{width}" height="{height}" type="application/x-shockwave-flash"
+							data="/typo3conf/ext/overheidsmediaplayer/Resources/Public/Javascript/johndyer/mediaelement/flashmediaelement.swf">
+						<param name="movie"
+							   value="typo3conf/ext/overheidsmediaplayer/Resources/Public/Javascript/johndyer/mediaelement/flashmediaelement.swf"/>
+						<param name="flashvars"
+							   value="controls=true&amp;file={flashFallbackVideoFileInfo.mediaSource}"/>
+
+						<!-- Image fallback (and download-links below) if neither HTML5 video,
+								nor flash, nor silverlight are available. -->
+						<img src="{posterImageUrl}" width="{width}" height="{height}"
+							 title="{f:translate(id: 'LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:no_video_playback_capabilities', extensionName: 'Overheidsmediaplayer')}"
+							 alt="{f:translate(id: 'LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:no_video_playback_capabilities', extensionName: 'Overheidsmediaplayer')}"/>
+					</object>
+				</f:if>
+
+			</video>
+
+
+			<f:if condition="{audioFileInfo}">
+
+				<div class="additional-audio-container">
+					<audio src="{audioFileInfo.mediaSourceUrl}"></audio>
+				</div>
+
+			</f:if>
+
+
+		</div>
+
+
+		<div class="overheidsmediaplayer-additional-audio-toggle-container">
+			<label for="movie{contentElementUid}-additional-audio-toggle"><input type="checkbox"
+																				 id="movie{contentElementUid}-additional-audio-toggle"
+																				 class="overheidsmediaplayer-additional-audio-toggle"/>
+				<f:translate id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:additional_audio_track"/>
+			</label>
+		</div>
+
+
+		<f:if condition="{renderFoldout}">
+			<ul class="foldouts">
+
+
+				<f:if condition="{hasDownloads}">
+					<li class="foldout moviedownloads">
+
+						<div class="foldout-header"><a href="#">
+							<f:translate
+									id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:download_video"/>
+
+							<span class="foldout-header-status"
+								  data-label-opened="{f:translate(id:'LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:foldable_opened')}"
+								  data-label-closed="{f:translate(id:'LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:foldable_closed')}">
+								<f:translate
+										id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:foldable_closed"/>
+							</span>
+						</a></div>
+						<ul class="foldout-body">
+
+							<f:if condition="{showVideoLinks}">
+								<f:for each="{videoFiles}" as="videoFileInfo">
+									<li>
+										<f:link.external uri="{videoFileInfo.fileDownloadUrl}">
+											<f:translate
+													id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:{videoFileInfo.mediaType}"/>
+												<span class="metageg">
+													<f:translate
+															id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:video"/> | {videoFileInfo.formattedFileCreationDateDate} | <f:image
+														src="{videoFileInfo.fileTypeIcon}"
+														alt="{videoFileInfo.fileReference.mimeType}"
+														title="{videoFileInfo.fileReference.mimeType}"/> {videoFileInfo.fileReference.extension}, {videoFileInfo.formattedFileSize}
+												</span>
+										</f:link.external>
+									</li>
+								</f:for>
+							</f:if>
+
+							<f:if condition="{showCaptionLink}">
+								<f:for each="{captionFiles}" as="captionFileInfo">
+									<li>
+										<f:link.external uri="{captionFileInfo.fileDownloadUrl}">
+											<f:translate
+													id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:{captionFileInfo.mediaType}"/>
+												<span class="metageg">
+													<f:translate
+															id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:caption"/> | {captionFileInfo.formattedFileCreationDateDate} | <f:image
+														src="{captionFileInfo.fileTypeIcon}"
+														alt="{captionFileInfo.fileReference.mimeType}"
+														title="{captionFileInfo.fileReference.mimeType}"/> {captionFileInfo.fileReference.extension}, {captionFileInfo.formattedFileSize}
+												</span>
+										</f:link.external>
+									</li>
+								</f:for>
+							</f:if>
+
+							<f:if condition="{audioFileInfo}">
+								<li>
+									<f:link.external uri="{audioFileInfo.fileDownloadUrl}">
+										<f:translate
+												id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:additional_audio_track"/>
+											<span class="metageg">
+												<f:translate
+														id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:audio"/> | {audioFileInfo.formattedFileCreationDateDate} | <f:image
+													src="{audioFileInfo.fileTypeIcon}"
+													alt="{audioFileInfo.fileReference.mimeType}"
+													title="{audioFileInfo.fileReference.mimeType}"/> {audioFileInfo.fileReference.extension}, {audioFileInfo.formattedFileSize}
+											</span>
+									</f:link.external>
+								</li>
+							</f:if>
+
+						</ul>
+					</li>
+				</f:if>
+
+
+				<f:if condition="{transcription}">
+					<li class="foldout transcription">
+						<div class="foldout-header"><a href="#">
+							<f:translate
+									id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:transcription"/>
+
+							<span class="foldout-header-status foldable-closed">
+								<f:translate
+										id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:foldable_closed"/>
+							</span>
+							<span class="foldout-header-status foldable-opened">
+								<f:translate
+										id="LLL:EXT:overheidsmediaplayer/Classes/Controller/locallang.xml:foldable_opened"/>
+							</span>
+						</a></div>
+						<div class="foldout-body">
+							{transcription -> f:format.raw()}
+						</div>
+					</li>
+				</f:if>
+
+
+			</ul>
+		</f:if>
+
+
+	</div>
+
+</f:section>

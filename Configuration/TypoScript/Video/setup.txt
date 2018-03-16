@@ -1,0 +1,56 @@
+plugin.tx_overheidsmediaplayer_videocontroller = USER
+plugin.tx_overheidsmediaplayer_videocontroller {
+	userFunc = Netcreators\Overheidsmediaplayer\Controller\VideoController->execute
+
+	layoutTemplatePartialRootPath = EXT:overheidsmediaplayer/Resources/Private/
+
+	title {
+		htmlSpecialChars = 1
+	}
+
+	secureDownloads = 1
+
+	description < .title
+
+	formatting {
+		date {
+			date = d-m-Y
+		}
+
+		size {
+			bytes = 1
+			bytes {
+				labels = B| KB| MB| GB
+			}
+		}
+	}
+
+	icons {
+		webm = EXT:overheidsmediaplayer/Resources/Public/Icons/webm.gif
+		mp4 = EXT:overheidsmediaplayer/Resources/Public/Icons/mp4.gif
+		theora = EXT:overheidsmediaplayer/Resources/Public/Icons/theora.gif
+		flash = EXT:overheidsmediaplayer/Resources/Public/Icons/flash.gif
+		quicktime = EXT:overheidsmediaplayer/Resources/Public/Icons/qt.gif
+		windowsmedia = EXT:overheidsmediaplayer/Resources/Public/Icons/wmv.gif
+		mp3 = EXT:overheidsmediaplayer/Resources/Public/Icons/mp3.gif
+		caption_file = EXT:overheidsmediaplayer/Resources/Public/Icons/vtt.gif
+	}
+}
+
+tt_content.list.20.overheidsmediaplayer_videocontroller =< plugin.tx_overheidsmediaplayer_videocontroller
+
+// Please make sure to have jQuery included!
+
+page.includeJSFooterlibs.overheidsmediaplayer_mediaElement = EXT:overheidsmediaplayer/Resources/Public/Javascript/johndyer/mediaelement/mediaelement-and-player.min.js
+
+page.includeJSFooter.overheidsmediaplayer = EXT:overheidsmediaplayer/Resources/Public/Javascript/overheidsmediaplayer.js
+
+page.includeCSS.mediaElementPlayer = EXT:overheidsmediaplayer/Resources/Public/Javascript/johndyer/mediaelement/mediaelementplayer.min.css
+
+// Unminified versions of upstream code for dev & staging:
+[globalString = ENV:HTTP_HOST=*.*.netcreators.nl]
+	page.includeJSFooterlibs.overheidsmediaplayer_mediaElement = EXT:overheidsmediaplayer/Resources/Public/Javascript/johndyer/mediaelement/mediaelement-and-player.js
+	page.includeCSS.mediaElementPlayer = EXT:overheidsmediaplayer/Resources/Public/Javascript/johndyer/mediaelement/mediaelementplayer.css
+[global]
+
+

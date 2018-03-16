@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for extension 'overheidsmediaplayer'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="no_video_playback_capabilities">No video playback capabilities</label>
+			<label index="error_video">There are no video files available</label>
+			<label index="no_file">This file has not been found</label>
+			<label index="download_video">Download this video</label>
+			<label index="vorbis">Audio file in free Ogg Vorbis format</label>
+			<label index="m4a">Audio file in MP4 AAC format</label>
+			<label index="mp3">Audio file in MP3 format</label>
+			<label index="webm">Video in free WebM format</label>
+			<label index="mp4">Video in non-free MP4 H.264 format</label>
+			<label index="theora">Video in free Ogg Theora format</label>
+			<label index="quicktime">Video for Apple Quicktime Player</label>
+			<label index="flash">Video for Adobe Flashplayer</label>
+			<label index="windowsmedia">Video for Windows Media Player</label>
+			<label index="windowsmediaaudio">Audio for Windows Media Player</label>
+			<label index="video">Video</label>
+			<label index="audio">Audio</label>
+			<label index="caption_file">Caption file</label>
+			<label index="caption">Caption</label>
+			<label index="transcription">Transcription</label>
+			<label index="additional_audio_track">Additional audio track</label>
+			<label index="foldable_closed">Content is closed</label>
+			<label index="foldable_opened">Content is opened</label>
+		</languageKey>
+		<languageKey index="nl" type="array">
+			<label index="no_video_playback_capabilities">Geen video afspeelmogelijkheden</label>
+			<label index="error_video">Er zijn geen videobestanden beschikbaar</label>
+			<label index="no_file">Bestand is niet gevonden</label>
+			<label index="download_video">Download bovenstaande video</label>
+			<label index="vorbis">Geluidsfragment in het vrije Ogg Vorbis formaat</label>
+			<label index="m4a">Geluidsfragment in MP4 AAC formaat</label>
+			<label index="mp3">Geluidsfragment in MP3 formaat</label>
+			<label index="webm">Video in het vrije WebM formaat</label>
+			<label index="mp4">Video in het niet vrije MP4 H.264 formaat</label>
+			<label index="theora">Video in het vrije Ogg Theora formaat</label>
+			<label index="quicktime">Video voor Apple Quicktime Player</label>
+			<label index="flash">Video voor Adobe Flashplayer</label>
+			<label index="windowsmedia">Video voor Windows Media Player</label>
+			<label index="video">Video</label>
+			<label index="audio">Audio</label>
+			<label index="caption_file">Ondertitelingsbestand</label>
+			<label index="caption">Ondertiteling</label>
+			<label index="transcription">Uitgeschreven tekst</label>
+			<label index="additional_audio_track">Audiobeschrijving</label>
+			<label index="foldable_closed">Content is gesloten</label>
+			<label index="foldable_opened">Content is geopend</label>
+		</languageKey>
+	</data>
+</T3locallang>

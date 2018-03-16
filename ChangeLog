@@ -1,0 +1,241 @@
+
+2018-01-17 4.2.4 Leonie Philine Bitto <leonie@netcreators.nl>
+    * window.MediaController and HTMLMediaElement.mediaGroup has been removed from all major browsers.
+        --> Removing related functionality from player script.
+
+2018-01-17 4.2.3 Leonie Philine Bitto <leonie@netcreators.nl>
+    * Moved TCA-modifying calls and methods from ext_tables.php to Configuration/TCA/Overrides/*.php
+
+2017-11-02 4.2.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Removed 'tt_content.header' field from subtypes_excludelist for 'list' type overheidsmediaplayer_videocontroller.
+
+2017-09-13 4.2.1 Leonie Philine Bitto <leonie@netcreators.nl>
+	* WizardIcon formatting.
+	* Added missing field \Netcreators\Overheidsmediaplayer\System\WizardIcon::$languageService.
+
+2017-09-11 4.2.0 Tania Morales <extension@netcreators.nl>
+	* Updated for compatibility with 8.7
+	* Replaced deprecated content object wrapper IMG_RESOURCE
+
+2017-08-03 4.1.12 Leonie Philine Bitto <extensions@netcreators.nl>
+	* Updated copyright dates.
+
+2017-07-31 4.1.11 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Changed from traditional to contemporary array syntax.
+
+2017-04-04 4.1.10 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fixed video Fullscreen mode - Video element remained at 600px width. Now expands to 100%.
+
+2017-03-08 4.1.9 Leonie Philine Bitto <leonie@netcreators.nl>
+	* A11y (Webrichtlijnen): Adjusted foldout status label text.
+
+2017-03-08 4.1.8 Leonie Philine Bitto <leonie@netcreators.nl>
+	* A11y (Webrichtlijnen): Changed approach for foldout status label to comply with a11y requirements.
+
+2017-02-23 4.1.7 Leonie Philine Bitto <leonie@netcreators.nl>
+	* A11y (Webrichtlijnen): Foldouts contain text "opened".
+
+2017-02-06 4.1.6 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Updated mediaelement from 2.19.0 to 2.23.5.
+
+2017-01-30 4.1.5 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fix: "Fatal error: Using $this when not in object context in
+		.../overheidsmediaplayer/Classes/View/VideoView.php on line 143"
+
+2017-01-26 4.1.4 Tania Morales <extensions@netcreators.nl>
+	* Changed constraints for 7.6 compatibility
+
+2016-12-30 4.1.3 Jordi Bakker <extensions@netcreators.nl>
+	* Change locallang.xml - dutch translation
+
+2016-10-06 4.1.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Formatted for PSR-2. No functional changes.
+
+2016-10-06 4.1.1 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fix: Video download links were broken (double schema & domain) on sites where TSFE::$absRefPrefix is set.
+
+2016-07-06 4.1.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Made video player responsive.
+	* Fixed html entity (& -> &amp;) in flash fallback variables.
+	* Removed obsolete email addresses.
+
+2016-02-08 4.0.4 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fixed template markup validity.
+
+2016-02-08 4.0.3 Leonie Philine Bitto <leonie@netcreators.nl>
+	* After removing SRT captions, reset 'showCaptionLinks' to its original name 'showCaptionLink', which reverts a breaking change in flexform field naming.
+	* Trigger $additionalAudioToggle.on('change') after initializing callback. Otherwise, under some conditions (where no mediaGroups are available, but MediaControllers are too), the additional audio track will play without the checkbox being checked initially.
+	* Small CSS fixes for foldouts margin and width.
+
+2016-02-08 4.0.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* jQuery fix: .css('width') now returns a string with 'px' postfix.
+
+2016-02-08 4.0.1 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fix: Adjust foldouts width to video width (which might be smaller than its container)
+
+2016-02-08 4.0.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Replaced GovVid/native HTML5 media controls & Flowplayer fallback with John Dyer's MediaElement.js to improve accessibility keyboard navigation.
+
+2015-03-21 3.3.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Changed toggle links for video downloads and transcription foldouts from H3 to SPAN for Webrichtlijnen compliance.
+
+2014-11-25 3.3.1 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fix: Since move of JS code from body to head, multiple players on the same page were no longer functioning correctly.
+
+2014-11-20 3.3.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Webrichtlijnen: CSS4-UI property "pointer-events" is now dynamically set via JavaScript to avoid invalid static CSS.
+
+2014-10-18 3.2.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* More generalized Captions support, notably fixing Captionator-support for IE9.
+	* Translated Dutch "Caption" label to "Ondertitels" (although, technically, Caption is Caption and Ondertitel is Subtitle. Subtitles and captions are not the same thing.
+	* Now allowing custom Captions toggle even if native support exists.
+	* Added TS configuration to disable/enable use of minified JS files:
+	    plugin.tx_overheidsmediaplayer_videocontroller.js.minified = 0/1
+	* Now only allowing VTT (no longer SRT) tracks to be added to HTML5 video.
+	* Added example .htaccess, adding media & caption (srt/vtt) MIME types (enabling captions for Internet Explorer 9+) and disabling gzip for streaming media.
+	* Removed .mp4 from audio/mp4 FAL selector, allowing only .m4a, so that we can serve .mp4 consistently as video/mp4.
+	* Added .m4v to video/mp4 FAL selector.
+	* Fixed ogg/theora FAL selector, allowing file extensions .ogv and .ogg. Files with extension .ogg are served as application/ogg instead of as video/ogg or audio/ogg.
+	* Removed .mp4 and .m4v from legacy quicktime FAL selector, allowing only .mov.
+	* Removed .wma from additional audio track FAL selector, allowing only .mp3. (Could consider .ogg/.oga...)
+
+2014-10-13 3.1.0 Leonie Philine Bitto <leonie@netcreators.nl>
+ 	* Re-implemented feature of version 1.1.2: Video Player setting "Disable additional audio".
+
+2014-10-08 3.0.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Use of namespaces.
+	* Use of class auto-loading.
+	* Code clean-up and simplifications.
+
+
+2014-10-07 2.2.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Feature merge from TYPO3 v4 branch into TYPO3 v6 branch:
+		2014-02-08 1.5.7 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Removed some site-specific styles.
+
+		2014-02-06 1.5.6 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Assigning width and height to video and audio elements for Android browser.
+			* Captionator cue canvas is now 'click-through' (No longer capturing pointer events.)
+			* Changed fixed Captions checkbox size to 'auto'.
+
+		2014-01-27 1.5.5 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Updated the user manual.
+
+		2014-01-27 1.5.4 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Fixed: PHP Fatal error:  Access level to tx_overheidsmediaplayer_view_file::$repository must be protected (as in class tx_overheidsmediaplayer_view_abstract) or weaker.
+
+		2014-01-27 1.5.3 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Refined audio and video codec definitions.
+			  iOS playback is now functional.
+			* Removed 3GPP, since the other formats should cover the corresponding devices.
+			* Separated Quicktime as .mov (for plugin fallback) from HTML5/Native H.264 Baseline Level 1.3 as .mp4.
+			* Added Flexform codec requirement descriptions to help users encode their media in the right formats and codecs.
+			* Switched to minified version of CaptionatorJS v0.5.
+			* Added download links for WebM and MP4.
+
+		2014-01-25 1.5.2 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Replaced nativeMediaPlayerElement.textTracks[i].default by nativeMediaPlayerElement.textTracks[i]['default'], since IE 8 sees default as keyword.
+			* Replaced element.getElementsByClassName('classname') by element.querySelectorAll('.classname'), since IE 8 only supports the latter.
+
+		2014-01-25 1.5.1 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Replaced Array.forEach by plain 'for' loop for older browsers.
+
+		2014-01-25 1.5.0 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Added possibility to reference WebVTT as well as SRT caption files, in order to support both native media playback and Flowplayer Flash.
+			* Added captionatorjs.com (v0.5) HTML5 video <track /> captions polyfill, mostly for Firefox, which does not yet have track support.
+			  Copyleft: @cgiffard (https://github.com/cgiffard/Captionator/wiki)
+
+			  == Licence ==
+			  You may copy and use this library as you see fit (including commercial use) and modify it,
+			  as long as you retain my attribution comment (which includes my name, link to this github page[1],
+			  and library version) at the top of the script. You may not, under any circumstances, claim you wrote
+			  this library, or remove my attribution. (Fair's fair!)
+			  [1] https://github.com/cgiffard/Captionator/wiki
+
+		2014-01-23 1.4.0 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Added HTML5/native media support.
+			  Priorities:
+				  1) Native media player for formats with high playback support confidence ('probably').
+				  2) Flowplayer Flash
+				  3) Quicktime Plugin
+				  4) Windows Media Player Plugin
+				  5) Native media player for formats with lower playback support confidence ('maybe').
+			* Added Dutch translation directly to locallang.xml file.
+
+		2014-01-22 1.3.0 Leonie Philine Bitto <leonie@netcreators.nl>
+			* Webrichtlijnen: Movie splash image is shown regardless of browser support for CSS.
+			* Webrichtlijnen: Play button now displayed without use of inline styles.
+
+
+2014-10-06 2.1.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Fix: overheidsmediaplayer now correctly determines if a Flash Video is linked to the plugin.
+
+2014-08-22 2.1.1 Gautam Kok <gautam@netcreators.nl
+	* Removed declare() function for compatibility with zend-disabled systems (PHP 5.4)
+
+2014-07-13 2.1.0 Tania Morales <extensions@netcreators.nl>
+  * Fixed flexform configuration to enable filters on 6.2 data handler
+
+2013-12-17 2.0.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Restored broken download and transcription toggle.
+	* Added a Play button (which FlowPlayer does not add by itself) to make clear that this is a clickable video.
+
+2013-12-05 2.0.1 Leonie Philine Bitto <leonie@netcreators.nl>
+	* RemoveXSS::process() is now called statically, as it is meant to be.
+
+2013-12-05 2.0.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Switched from DAM to FAL: Overheidsmediaplayer is now compatible with TYPO3 6.2.
+
+2013-11-14 1.2.2 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Additional audio for Video player is now added using typoLink as well.
+
+2013-11-14 1.2.1 Leonie Philine Bitto <leonie@netcreators.nl>
+	* XSS Fix: Replaced flowplayer-3.2.16.swf by pre-release flowplayer-3.2.17-dev.swf compiled from git 'dev' branch sources.
+	* Replaced flowplayer.audio-3.2.10.swf, flowplayer.captions-3.2.9.swf, flowplayer.content-3.2.8.swf and flowplayer.controls-3.2.15.swf by same versions compiled for flowplayer flash v3.2.17 from git 'dev' branch source.
+	* Added non-minified flowplayer-3.2.12.js.
+
+2013-11-07 1.2.0 Leonie Philine Bitto <leonie@netcreators.nl>
+	* XSS Fix: Updated FlowPlayer and plugins.
+	* Integrated Audio plugin.
+	* Moderate GovVid Javascript rework.
+	* Removed JW Player.
+
+2013-11-07 1.1.6 Leonie Philine Bitto <leonie@netcreators.nl>
+	* Merged Choong's version (17:fafc8c359a45, v1.1.5) with Carmen's version (13:cb7d7f2bc941, v1.1.3), rediscovering lost features - with slight adjustments.
+
+2012-06-17 1.1.5 Choong Wei Tjeng
+	* Wrap JS in document.ready to prevent collision with other extensions
+
+2011-07-21 1.1.3 Carmen Popoviciu
+	* Extended video player to support an additional audio stream
+
+2010-01-19  Patrick Broens
+
+	* Solved audio detection in javascript
+
+2009-12-03  Patrick Broens
+
+	* Changed description in ext_emconf.php
+	* Indexes in the manual totally went bezerk after latest update
+
+2009-12-02  Patrick Broens
+
+	* Added the GPL-ed Flowplayer. Configurable if you need it.
+
+2009-11-13  Patrick Broens
+
+	* Added documentation
+
+2009-11-12  Patrick Broens
+
+	* Video player ready
+	* Audio player ready
+	* Added tx_overheidsmediaplayer_view_abstract to Classes/View/File.php
+	* Deleted Resources/Private/Icons/contentelementwizard.gif
+	* Added Netcreators to author in ext_emconf.php
+	* Changed Resources/Public/Javascript/govvid.js to minified version govvid.min.js
+	* Added Creative Commons BY NC SA 3.0 license to ext_emconf.php
+
+2009-11-10  Patrick Broens
+
+	* Initializing of overheidsmediaplayer

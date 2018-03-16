@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for flexforms belonging to extension 'overheidsmediaplayer'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+
+			<label index="sheet_general">General</label>
+			<label index="title">Title</label>
+			<label index="description">Description</label>
+
+			<label index="sheet_player">Player settings</label>
+			<label index="width">Width (in pixels)</label>
+			<label index="height">Height (in pixels)</label>
+			<label index="showVideoLinks">Show links to download video files (.webm, .mp4, .ogv, .mov, .wmv, if available) and additional audio track (mp3)</label>
+			<label index="showCaptionLink">Show link to download caption file (.vtt)</label>
+
+			<label index="sheet_videos">Videos</label>
+			<label index="webm_video">Free and Open Source Video Optimized for Use on the Web (.webm for most modern web browsers) [Video Codec: VP8, Audio Codec: Vorbis]</label>
+			<label index="mp4_video">Non-free but Widely Supported Video Format (.mp4, .m4v for most modern web browsers) [Video Codec: H.264 Baseline Level 1.3, Audio Codec: Low Complexity AAC (AAC-LC)]</label>
+			<label index="theora_video">Free and Open Source Video (.ogg, .ogv for modern web browsers which do not support the non-free MP4 video format) [Video Codec: Theora, Audio Codec: Vorbis]</label>
+			<label index="flash_video">Non-free Video for Flash Player (.flv for FlowPlayer fallback) [Sorenson Spark, vp6, H.264, HE-ACC]</label>
+			<label index="quicktime_video">Non-free Video for QuickTime Player (.mov for browser plugin fallback)</label>
+			<label index="windowsMedia_video">Non-free Video for Windows Media Player (.wmv for browser plugin fallback)</label>
+
+			<label index="sheet_image">Image</label>
+			<label index="image">Image when no player is available (.gif, .jpg, .jpeg, .png)</label>
+
+			<label index="sheet_caption">Caption</label>
+			<label index="vtt_caption">WebVTT Caption file (.vtt)</label>
+
+			<label index="sheet_transcription">Transcription</label>
+			<label index="transcription">Transcription</label>
+
+			<label index="sheet_audio">Additional Audio</label>
+			<label index="audio">Additional audio stream to be embedded in the player (.mp3)</label>
+			<label index="disableAdditionalAudio">Disable additional audio stream</label>
+
+		</languageKey>
+	</data>
+</T3locallang>
